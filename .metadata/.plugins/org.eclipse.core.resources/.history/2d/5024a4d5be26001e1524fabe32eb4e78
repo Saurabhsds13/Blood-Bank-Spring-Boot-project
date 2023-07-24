@@ -1,0 +1,22 @@
+package com.AEL.bloodbank.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.AEL.bloodbank.dao.Blood_BanksDAO;
+
+@RequestMapping("/")
+@RestController
+public class Blood_BanksController {
+	
+	@Autowired
+	 Blood_BanksDAO blood_banksDAO;
+	
+	@PostMapping("/blood_banks")
+	public Blood_Banks createBloodBank(Blood_Banks bb) {
+		return Blood_BanksDAO.save(bb);
+	}
+			
+}

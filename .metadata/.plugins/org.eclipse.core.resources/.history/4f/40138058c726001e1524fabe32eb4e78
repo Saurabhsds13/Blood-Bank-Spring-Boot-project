@@ -1,0 +1,27 @@
+package com.AEL.bloodbank.dao;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.AEL.bloodbank.model.Blood_Banks;
+import com.AEL.bloodbank.repository.Blood_BanksRepository;
+
+
+@Service
+public class Blood_BanksDAO {
+	
+	@Autowired
+	Blood_BanksRepository blood_bankRepository;
+	
+	public Blood_Banks save(Blood_Banks bb) {
+		System.out.println("Blood Bank Created "+bb);
+		return blood_bankRepository.save(bb);
+	}
+	
+	public List<Blood_Banks> Blood_Banks findallbb() {
+		return blood_bankRepository.findAll();
+	}
+}

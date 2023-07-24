@@ -1,0 +1,95 @@
+package com.AEL.bloodbank.model;
+
+import java.sql.Date;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+
+@Entity
+public class Transactions {
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="Transaction_Id")
+	private int transactionId;
+	
+	@Column(name="Donor_Id")
+//	@JoinColumn(name="donor_Id")
+//	@OneToMany
+	private int donorId;
+	
+	@Column(name="Recipient_Id")
+//	@JoinColumn(name="recipient_Id")
+//	@OneToMany
+	private int recipientId;
+	
+	@Column(name="Blood_Unit_Id")
+//	@JoinColumn(name="blood_unit_Id")
+//	@OneToMany
+	private int bloodUnitId;
+	
+	@Column(name="Transaction_Date")
+	private Date transactionDate;
+	
+	@Column(name="Quantity")
+	private int quantityl;
+	@Column(name="Transaction_Type")
+	private String transactionType;
+	public int getTransactionId() {
+		return transactionId;
+	}
+	public void setTransactionId(int transactionId) {
+		this.transactionId = transactionId;
+	}
+	public int getDonorId() {
+		return donorId;
+	}
+	public void setDonorId(int donorId) {
+		this.donorId = donorId;
+	}
+	public int getRecipientId() {
+		return recipientId;
+	}
+	public void setRecipientId(int recipientId) {
+		this.recipientId = recipientId;
+	}
+	public int getBloodUnitId() {
+		return bloodUnitId;
+	}
+	public void setBloodUnitId(int bloodUnitId) {
+		this.bloodUnitId = bloodUnitId;
+	}
+	public Date getTransactionDate() {
+		return transactionDate;
+	}
+	public void setTransactionDate(Date transactionDate) {
+		this.transactionDate = transactionDate;
+	}
+	public int getQuantityl() {
+		return quantityl;
+	}
+	public void setQuantityl(int quantityl) {
+		this.quantityl = quantityl;
+	}
+	public String getTransactionType() {
+		return transactionType;
+	}
+	public void setTransactionType(String transactionType) {
+		this.transactionType = transactionType;
+	}
+	@Override
+	public String toString() {
+		return "Transactions [transactionId=" + transactionId + ", donorId=" + donorId + ", recipientId=" + recipientId
+				+ ", bloodUnitId=" + bloodUnitId + ", transactionDate=" + transactionDate + ", quantityl=" + quantityl
+				+ ", transactionType=" + transactionType + "]";
+	}
+	
+	
+	
+}

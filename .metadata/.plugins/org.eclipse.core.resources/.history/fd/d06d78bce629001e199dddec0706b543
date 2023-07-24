@@ -1,0 +1,19 @@
+package com.AEL.bloodbank.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.AEL.bloodbank.model.Blood_Units;
+import com.AEL.bloodbank.repository.Blood_UnitsRepository;
+
+@Service
+public class Blood_UnitsDAO {
+
+	@Autowired
+	Blood_UnitsRepository blood_unitsRepository;
+	
+	
+	public Blood_Units save(Blood_Units bloodUnit) {
+		return blood_unitsRepository.save(bloodUnit);
+	}
+}

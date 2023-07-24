@@ -1,0 +1,7 @@
+Errors faced during project :-
+
+1."message": "Cannot invoke \"com.AEL.bloodbank.dao.Blood_UnitsDAO.save(com.AEL.bloodbank.model.Blood_Units)\" because \"this.blood_unitsdao\" is null",
+
+2.Association 'com.AEL.bloodbank.model.Blood_Units.donorId' targets an unknown entity named 'int'
+
+3. Caused by: org.hibernate.AnnotationException: Property 'com.AEL.bloodbank.model.Transactions.donorId' is a '@OneToOne' association and may not use '@Column' to specify column mappings (use '@PrimaryKeyJoinColumn' instead)

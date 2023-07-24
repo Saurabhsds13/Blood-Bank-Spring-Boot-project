@@ -1,0 +1,17 @@
+package com.AEL.bloodbank.dao;
+
+import org.springframework.stereotype.Service;
+
+import com.AEL.bloodbank.model.Blood_Banks;
+import com.AEL.bloodbank.repository.Blood_BanksRepository;
+import com.AEL.bloodbank.repository.Blood_BanksRepository.Blood_BankRepository;
+
+@Service
+public class Blood_BanksDAO {
+
+	Blood_BanksRepository blood_bankRepository;
+	
+	public Blood_Banks save(Blood_Banks bb) {
+		return blood_bankRepository.save(bb);
+	}
+}

@@ -1,0 +1,14 @@
+package com.AEL.bloodbank.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import com.AEL.bloodbank.model.Blood_Banks;
+
+public class Blood_BanksRepository {
+
+	
+@Repository
+public interface Blood_BankRepository extends JpaRepository<Blood_Banks, Long>{
+		
+	}
+}

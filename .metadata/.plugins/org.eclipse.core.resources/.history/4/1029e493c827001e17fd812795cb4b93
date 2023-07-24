@@ -1,0 +1,21 @@
+package com.AEL.bloodbank.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.AEL.bloodbank.model.Blood_Units;
+import com.AEL.bloodbank.repository.Blood_UnitsRepository;
+
+@Service
+public class Blood_UnitsDAO {
+
+	@Autowired
+	Blood_UnitsRepository blood_unitsRepository;
+	
+	
+	public Blood_Units createBloodUnit(@Validated @RequestBody Blood_Units blood_unit) {
+		return blood_unitsRepository.save(blood_unit);
+	}
+}
