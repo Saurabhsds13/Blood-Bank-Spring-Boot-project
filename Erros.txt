@@ -5,3 +5,5 @@ Errors faced during project :-
 2.Association 'com.AEL.bloodbank.model.Blood_Units.donorId' targets an unknown entity named 'int'
 
 3. Caused by: org.hibernate.AnnotationException: Property 'com.AEL.bloodbank.model.Transactions.donorId' is a '@OneToOne' association and may not use '@Column' to specify column mappings (use '@PrimaryKeyJoinColumn' instead)
+
+4. git testing
