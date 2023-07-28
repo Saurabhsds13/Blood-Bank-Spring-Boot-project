@@ -1,10 +1,12 @@
 package com.AEL.bloodbank.model;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,6 +27,9 @@ public class Blood_Banks {
 	private String address;
 	private String city;
 	
+	@OneToMany(mappedBy = "Blood_Banks")
+	private List<Blood_Units> bloodUnits;
+	  
 	@Column(name="zip_code")
 	private int zipCode;
 
@@ -84,12 +89,22 @@ public class Blood_Banks {
 		this.zipCode = zipCode;
 	}
 
+	public List<Blood_Units> getBloodUnits() {
+		return bloodUnits;
+	}
+
+	public void setBloodUnits(List<Blood_Units> bloodUnits) {
+		this.bloodUnits = bloodUnits;
+	}
+
 	@Override
 	public String toString() {
 		return "Blood_Banks [bloodBankId=" + bloodBankId + ", name=" + name + ", email=" + email + ", phoneNO="
-				+ phoneNO + ", address=" + address + ", city=" + city + ", zipCode=" + zipCode + "]";
+				+ phoneNO + ", address=" + address + ", city=" + city + ", bloodUnits=" + bloodUnits + ", zipCode="
+				+ zipCode + "]";
 	}
-	
+
+
 	
 	
 	

@@ -2,12 +2,14 @@ package com.AEL.bloodbank.model;
 
 import java.sql.Date;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 
@@ -20,28 +22,31 @@ public class Transactions {
 	@Column(name="Transaction_Id")
 	private int transactionId;
 	
-	@PrimaryKeyJoinColumn(name="Donor_Id")
-	@JoinColumn(name="donor_Id")
-	@OneToOne
-	private Donor donorId;
+	@ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "donor_id")
+    private Donor donor;
 	
-	@PrimaryKeyJoinColumn(name="Recipient_Id")
+
 	@JoinColumn(name="recipient_Id")
-	@OneToOne
-	private Recipient recipientId;
+	@ManyToOne(cascade=CascadeType.ALL)
+	private Recipient recipient;
 	
-	@PrimaryKeyJoinColumn(name="Blood_Unit_Id")
+	
 	@JoinColumn(name="blood_unit_Id")
-	@OneToOne
-	private Blood_Units bloodUnitId;
+	@ManyToOne(cascade=CascadeType.ALL)
+	private Blood_Units blood_units;
 	
-	@Column(name="Transaction_Date")
+	@Column(name="transaction_date")
 	private Date transactionDate;
 	
 	@Column(name="Quantity")
 	private int quantityl;
+	
 	@Column(name="Transaction_Type")
 	private String transactionType;
+	
+	
+	//getters and setters
 	public int getTransactionId() {
 		return transactionId;
 	}
@@ -49,22 +54,22 @@ public class Transactions {
 		this.transactionId = transactionId;
 	}
 	public Donor getDonorId() {
-		return donorId;
+		return donor;
 	}
-	public void setDonorId(Donor donorId) {
-		this.donorId = donorId;
+	public void setDonorId(Donor donor) {
+		this.donor = donor;
 	}
 	public Recipient getRecipientId() {
-		return recipientId;
+		return recipient;
 	}
-	public void setRecipientId(Recipient recipientId) {
-		this.recipientId = recipientId;
+	public void setRecipientId(Recipient recipient) {
+		this.recipient = recipient;
 	}
 	public Blood_Units getBloodUnitId() {
-		return bloodUnitId;
+		return blood_units;
 	}
-	public void setBloodUnitId(Blood_Units bloodUnitId) {
-		this.bloodUnitId = bloodUnitId;
+	public void setBloodUnitId(Blood_Units blood_units) {
+		this.blood_units = blood_units;
 	}
 	public Date getTransactionDate() {
 		return transactionDate;
@@ -84,12 +89,48 @@ public class Transactions {
 	public void setTransactionType(String transactionType) {
 		this.transactionType = transactionType;
 	}
+	
+	
+	
+	
+	public Donor getDonor() {
+		return donor;
+	}
+	public void setDonor(Donor donor) {
+		this.donor = donor;
+	}
+	public Recipient getRecipient() {
+		return recipient;
+	}
+	public void setRecipient(Recipient recipient) {
+		this.recipient = recipient;
+	}
+	public Blood_Units getBlood_units() {
+		return blood_units;
+	}
+	public void setBlood_units(Blood_Units blood_units) {
+		this.blood_units = blood_units;
+	}
 	@Override
 	public String toString() {
-		return "Transactions [transactionId=" + transactionId + ", donorId=" + donorId + ", recipientId=" + recipientId
-				+ ", bloodUnitId=" + bloodUnitId + ", transactionDate=" + transactionDate + ", quantityl=" + quantityl
+		return "Transactions [transactionId=" + transactionId + ", donor=" + donor + ", recipient=" + recipient
+				+ ", blood_units=" + blood_units + ", transactionDate=" + transactionDate + ", quantityl=" + quantityl
 				+ ", transactionType=" + transactionType + "]";
 	}
+	public Transactions(int transactionId, Donor donor, Recipient recipient, Blood_Units blood_units,
+			Date transactionDate, int quantityl, String transactionType) {
+		super();
+		this.transactionId = transactionId;
+		this.donor = donor;
+		this.recipient = recipient;
+		this.blood_units = blood_units;
+		this.transactionDate = transactionDate;
+		this.quantityl = quantityl;
+		this.transactionType = transactionType;
+	}
+	
+	
+
 	
 	
 	

@@ -83,6 +83,16 @@ public class Staff {
 		return "Staff [staffId=" + staffId + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ ", phoneNo=" + phoneNo + ", role=" + role + "]";
 	}
+
+	public Staff(int staffId, String firstName, String lastName, String email, int phoneNo, String role) {
+		super();
+		this.staffId = staffId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phoneNo = phoneNo;
+		this.role = role;
+	}
 	
 	
 }

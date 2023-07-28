@@ -1,14 +1,16 @@
 package com.AEL.bloodbank.model;
 
 import java.sql.Date;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.PrimaryKeyJoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 @Entity
 @Table(name="donor")
@@ -31,10 +33,14 @@ public class Donor {
 	@Column(name="phone_no")
 	private String phoneNo;
 	
-	@PrimaryKeyJoinColumn(name="blood_type")
-	@JoinColumn(name="blood_type")
-	@OneToOne
-	private Blood_Units bloodType;
+//	@PrimaryKeyJoinColumn(name="Blood_Unit_ID")
+//	@JoinColumn(name="Blood_Unit_ID")
+//	@OneToOne(mappedBy = "donor",cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+//	private Blood_Units blood_units;
+	
+	
+	 @OneToMany(mappedBy = "donor",cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+	   private List<Blood_Units> bloodUnits;
 	
 	@Column(name="date_of_birth")
 	private Date dateofBirth;
@@ -90,12 +96,12 @@ public class Donor {
 		this.phoneNo = phoneNo;
 	}
 
-	public Blood_Units getBloodType() {
-		return bloodType;
+	public List<Blood_Units> getBloodType() {
+		return bloodUnits;
 	}
 
-	public void setBloodType(Blood_Units bloodType) {
-		this.bloodType = bloodType;
+	public void setBloodType(List<Blood_Units> bloodType) {
+		this.bloodUnits = bloodType;
 	}
 
 	public Date getDateofBirth() {
@@ -151,14 +157,14 @@ public class Donor {
 	@Override
 	public String toString() {
 		return "Donor [donorId=" + donorId + ", firstName=" + firstName + ", lastName=" + lastName + ", emailID="
-				+ emailID + ", phoneNo=" + phoneNo + ", bloodType=" + bloodType + ", dateofBirth=" + dateofBirth
+				+ emailID + ", phoneNo=" + phoneNo + ", bloodType=" + bloodUnits + ", dateofBirth=" + dateofBirth
 				+ ", address=" + address + ", city=" + city + ", state=" + state + ", zipCode=" + zipCode
 				+ ", lastdonationDate=" + lastdonationDate + "]";
 	}
 
 	
 	//Constructor
-	public Donor(int donorId, String firstName, String lastName, String emailID, String phoneNo, Blood_Units bloodType,
+	public Donor(int donorId, String firstName, String lastName, String emailID, String phoneNo, List<Blood_Units> bloodUnits,
 			Date dateofBirth, String address, String city, String state, int zipCode, Date lastdonationDate) {
 		super();
 		this.donorId = donorId;
@@ -166,7 +172,7 @@ public class Donor {
 		this.lastName = lastName;
 		this.emailID = emailID;
 		this.phoneNo = phoneNo;
-		this.bloodType = bloodType;
+		this.bloodUnits = bloodUnits;
 		this.dateofBirth = dateofBirth;
 		this.address = address;
 		this.city = city;
@@ -175,10 +181,8 @@ public class Donor {
 		this.lastdonationDate = lastdonationDate;
 	}
 
-	public Donor() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+
+}
 	
 	
 	
@@ -189,4 +193,4 @@ public class Donor {
 	
 	
 
-}
+

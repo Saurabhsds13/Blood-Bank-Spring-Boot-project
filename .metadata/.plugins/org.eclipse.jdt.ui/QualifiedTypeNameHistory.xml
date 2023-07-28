@@ -26,8 +26,6 @@
     <fullyQualifiedTypeName name="com.AEL.bloodbank.dao.Blood_BanksDAO"/>
     <fullyQualifiedTypeName name="com.AEL.bloodbank.model.Blood_Banks"/>
     <fullyQualifiedTypeName name="com.AEL.bloodbank.repository.Blood_BanksRepository"/>
-    <fullyQualifiedTypeName name="java.util.Optional"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="java.lang.Long"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
@@ -38,7 +36,6 @@
     <fullyQualifiedTypeName name="com.AEL.bloodbank.dao.Blood_UnitsDAO"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="org.springframework.validation.annotation.Validated"/>
-    <fullyQualifiedTypeName name="com.AEL.bloodbank.model.Blood_Units"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
     <fullyQualifiedTypeName name="jakarta.persistence.ManyToOne"/>
@@ -46,8 +43,12 @@
     <fullyQualifiedTypeName name="jakarta.persistence.OneToMany"/>
     <fullyQualifiedTypeName name="org.antlr.v4.runtime.misc.NotNull"/>
     <fullyQualifiedTypeName name="jakarta.persistence.OneToOne"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.PrimaryKeyJoinColumn"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.CascadeType"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="com.AEL.bloodbank.model.Blood_Units"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.PrimaryKeyJoinColumn"/>
 </qualifiedTypeNameHistroy>

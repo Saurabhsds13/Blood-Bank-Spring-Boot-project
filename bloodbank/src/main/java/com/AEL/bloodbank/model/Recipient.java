@@ -1,12 +1,14 @@
 package com.AEL.bloodbank.model;
 
 import java.sql.Date;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,31 +18,34 @@ public class Recipient {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="recipent_id")
-	int recipentId;
+	private int recipentId;
 	
 	@Column(name="first_name")
-	String firstName;
+	private String firstName;
 	
 	@Column(name="last_name")
-	String lastName;
+	private String lastName;
 	
 	@Column(name="email_id")
-	String emailID;
+	private String emailID;
 	
 	@Column(name="phone_no")
-	String phoneNo;
+	private String phoneNo;
 	
 	@Column(name="blood_type")
-	String bloodType;
+	private String bloodType;
 	
 	@Column(name="date_of_birth")
-	Date dateofBirth;
-	String address;
-	String city;
-	String state;
+	private Date dateofBirth;
+	private String address;
+	private String city;
+	private String state;
+	
+	@OneToMany(mappedBy = "recipient")
+    private List<Transactions> transactions;
 	
 	@Column(name="zip_code")
-	int zipCode;
+	private int zipCode;
 
 	
 	// Getters and setters
@@ -134,17 +139,29 @@ public class Recipient {
 
 	//To String Method
 	
+	public List<Transactions> getTransactions() {
+		return transactions;
+	}
+
+	public void setTransactions(List<Transactions> transactions) {
+		this.transactions = transactions;
+	}
+
 	@Override
 	public String toString() {
 		return "Recipient [recipentId=" + recipentId + ", firstName=" + firstName + ", lastName=" + lastName
 				+ ", emailID=" + emailID + ", phoneNo=" + phoneNo + ", bloodType=" + bloodType + ", dateofBirth="
-				+ dateofBirth + ", address=" + address + ", city=" + city + ", state=" + state + ", zipCode=" + zipCode
-				+ "]";
+				+ dateofBirth + ", address=" + address + ", city=" + city + ", state=" + state + ", transactions="
+				+ transactions + ", zipCode=" + zipCode + "]";
 	}
+	
 
 	//Constructor
+
+
 	public Recipient(int recipentId, String firstName, String lastName, String emailID, String phoneNo,
-			String bloodType, Date dateofBirth, String address, String city, String state, int zipCode) {
+			String bloodType, Date dateofBirth, String address, String city, String state,
+			List<Transactions> transactions, int zipCode) {
 		super();
 		this.recipentId = recipentId;
 		this.firstName = firstName;
@@ -156,6 +173,7 @@ public class Recipient {
 		this.address = address;
 		this.city = city;
 		this.state = state;
+		this.transactions = transactions;
 		this.zipCode = zipCode;
 	}
 	

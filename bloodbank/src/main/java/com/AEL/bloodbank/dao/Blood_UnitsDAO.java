@@ -1,6 +1,7 @@
 package com.AEL.bloodbank.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,5 +25,14 @@ public class Blood_UnitsDAO {
 	{
 		return bloodunitsRepository.findAll();
 		
+	}
+	
+	public void deletebloodunit(Blood_Units blood_units){
+		 bloodunitsRepository.delete(blood_units);
+	}
+	
+	public Optional<Blood_Units> findOne(Long bloodUnitID) {
+		// return null;
+		return bloodunitsRepository.findById(bloodUnitID);
 	}
 }
