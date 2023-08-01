@@ -7,3 +7,9 @@ Errors faced during project :-
 3. Caused by: org.hibernate.AnnotationException: Property 'com.AEL.bloodbank.model.Transactions.donorId' is a '@OneToOne' association and may not use '@Column' to specify column mappings (use '@PrimaryKeyJoinColumn' instead)
 
 4. git testing
+
+5.Collection'com.AEL.bloodbank.model.Blood_Banks.bloodUnits' is 'mappedBy' a property named 'Blood_Banks' which does not exist in the target entity 'com.AEL.bloodbank.model.Blood_Units'
+
+6.Blood_Units.transactions' is 'mappedBy' a property named 'bloodUnit' which does not exist in the target entity 'com.AEL.bloodbank.model.Transactions'
+
+7.could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`bloodbank`.`blood_units`, CONSTRAINT `FK8vxraioj303gf32hix3v8nqdc` FOREIGN KEY (`donor_id`) REFERENCES `donor` (`donor_id`))] [delete from `donor` where `donor_id`=?]; SQL [delete from `donor` where `donor_id`=?]; constraint [null]"

@@ -27,8 +27,8 @@ public class Blood_Banks {
 	private String address;
 	private String city;
 	
-	@OneToMany(mappedBy = "Blood_Banks")
-	private List<Blood_Units> bloodUnits;
+	@OneToMany(mappedBy = "blood_banks")
+	private List<Blood_Units> bloodUnit;
 	  
 	@Column(name="zip_code")
 	private int zipCode;
@@ -90,23 +90,37 @@ public class Blood_Banks {
 	}
 
 	public List<Blood_Units> getBloodUnits() {
-		return bloodUnits;
+		return bloodUnit;
 	}
 
 	public void setBloodUnits(List<Blood_Units> bloodUnits) {
-		this.bloodUnits = bloodUnits;
+		this.bloodUnit = bloodUnits;
 	}
 
 	@Override
 	public String toString() {
 		return "Blood_Banks [bloodBankId=" + bloodBankId + ", name=" + name + ", email=" + email + ", phoneNO="
-				+ phoneNO + ", address=" + address + ", city=" + city + ", bloodUnits=" + bloodUnits + ", zipCode="
+				+ phoneNO + ", address=" + address + ", city=" + city + ", bloodUnits=" + bloodUnit + ", zipCode="
 				+ zipCode + "]";
 	}
 
+	public Blood_Banks(int bloodBankId, String name, String email, String phoneNO, String address, String city,
+			List<Blood_Units> bloodUnit, int zipCode) {
+		super();
+		this.bloodBankId = bloodBankId;
+		this.name = name;
+		this.email = email;
+		this.phoneNO = phoneNO;
+		this.address = address;
+		this.city = city;
+		this.bloodUnit = bloodUnit;
+		this.zipCode = zipCode;
+	}
 
-	
-	
+	public Blood_Banks() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 	
 }

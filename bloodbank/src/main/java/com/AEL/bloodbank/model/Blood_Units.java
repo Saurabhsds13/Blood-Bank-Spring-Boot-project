@@ -36,14 +36,14 @@ public class Blood_Units {
 	
 //	@Column(name="blood_bank_id")
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="blood_bank_Id")	
+	@JoinColumn(name="blood_bank_id")	
 	private Blood_Banks blood_banks;
 	
 	@ManyToOne
 	@JoinColumn(name = "recipient_id")
 	private Recipient recipient;
 	    
-	@OneToMany(mappedBy = "bloodUnit")
+	@OneToMany(mappedBy = "blood_units")
 	private List<Transactions> transactions;
 	
 	@Column(name="blood_type")
@@ -55,74 +55,61 @@ public class Blood_Units {
 	
 	private String status;
 	
+	
+	
 	public int getBloodUnitID() {
 		return bloodUnitID;
 	}
-	public void setBloodUnitID(int bloodUnitID) {
+	public void ListBloodUnitID(int bloodUnitID) {
 		this.bloodUnitID = bloodUnitID;
 	}
-	public Donor getDonorId() {
-		return donor;
-	}
-	public void setDonorId(Donor donor) {
-		this.donor = donor;
-	}
-	public Blood_Banks getBloodBankId() {
-		return blood_banks;
-	}
-	public void setBloodBankId(Blood_Banks blood_banks) {
-		this.blood_banks = blood_banks;
-	}
-	public String getBloodType() {
-		return bloodType;
-	}
-	public void setBloodType(String bloodType) {
-		this.bloodType = bloodType;
-	}
-	public Date getCollectionDate() {
-		return collectionDate;
-	}
-	public void setCollectionDate(Date collectionDate) {
-		this.collectionDate = collectionDate;
-	}
-	public Date getExpirationDate() {
-		return expirationDate;
-	}
-	public void setExpirationDate(Date expirationDate) {
-		this.expirationDate = expirationDate;
-	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
-	
-
-
 	public Donor getDonor() {
 		return donor;
 	}
-	public void setDonor(Donor donor) {
+	public void ListDonor(Donor donor) {
 		this.donor = donor;
 	}
 	public Blood_Banks getBlood_banks() {
 		return blood_banks;
 	}
-	public void setBlood_banks(Blood_Banks blood_banks) {
+	public void ListBlood_banks(Blood_Banks blood_banks) {
 		this.blood_banks = blood_banks;
 	}
 	public Recipient getRecipient() {
 		return recipient;
 	}
-	public void setRecipient(Recipient recipient) {
+	public void ListRecipient(Recipient recipient) {
 		this.recipient = recipient;
 	}
 	public List<Transactions> getTransactions() {
 		return transactions;
 	}
-	public void setTransactions(List<Transactions> transactions) {
+	public void ListTransactions(List<Transactions> transactions) {
 		this.transactions = transactions;
+	}
+	public String getBloodType() {
+		return bloodType;
+	}
+	public void ListBloodType(String bloodType) {
+		this.bloodType = bloodType;
+	}
+	public Date getCollectionDate() {
+		return collectionDate;
+	}
+	public void ListCollectionDate(Date collectionDate) {
+		this.collectionDate = collectionDate;
+	}
+	public Date getExpirationDate() {
+		return expirationDate;
+	}
+	public void ListExpirationDate(Date expirationDate) {
+		this.expirationDate = expirationDate;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void ListStatus(String status) {
+		this.status = status;
 	}
 	@Override
 	public String toString() {
@@ -131,7 +118,6 @@ public class Blood_Units {
 				+ ", collectionDate=" + collectionDate + ", expirationDate=" + expirationDate + ", status=" + status
 				+ "]";
 	}
-	
 	public Blood_Units(int bloodUnitID, Donor donor, Blood_Banks blood_banks, Recipient recipient,
 			List<Transactions> transactions, String bloodType, Date collectionDate, Date expirationDate,
 			String status) {
@@ -146,6 +132,12 @@ public class Blood_Units {
 		this.expirationDate = expirationDate;
 		this.status = status;
 	}
+	public Blood_Units() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+
 	
 	
 	

@@ -40,13 +40,13 @@ public class DonorController {
 	
 	//Delete_Donor by donorID
 	@DeleteMapping("/deleteDonor/{donorID}")
-	
-	
 	public ResponseEntity<Donor> deleteDonor(@PathVariable(value="donorID") Long donorId) {
 		
 		Optional<Donor> Donor = donordao.findOne(donorId);
-
-		donordao.delete(Donor.get());
+		if(Donor.isPresent()) {
+			donordao.delete(Donor.get());
+			
+		}
 		System.out.println("Donor deleted wiht id : "+ " " +donorId);
 		return ResponseEntity.ok().build();
 	}

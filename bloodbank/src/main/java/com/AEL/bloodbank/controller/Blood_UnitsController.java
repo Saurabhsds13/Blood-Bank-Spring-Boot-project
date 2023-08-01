@@ -2,7 +2,6 @@ package com.AEL.bloodbank.controller;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -40,13 +39,10 @@ public class Blood_UnitsController {
 	@DeleteMapping("/deletebloodUnit")
 	public ResponseEntity<Blood_Units> deletebloodUnit(@PathVariable(value="bloodUnitId") Long bloodUnitId) {
 		
-		Optional<Blood_Units> blood_units = bloodUnitsDAO.findOne(bloodUnitId);
+		Optional<Blood_Units> bloodUnits = bloodUnitsDAO.findOne(bloodUnitId);
 
-		bloodUnitsDAO.deletebloodunit(blood_units.get());
+		bloodUnitsDAO.deletebloodunit(bloodUnits.get());
 		System.out.println("Blood Unit deleted wiht id : "+ " " +bloodUnitId);
 		return ResponseEntity.ok().build();
 	}
-	
-	
-
 }

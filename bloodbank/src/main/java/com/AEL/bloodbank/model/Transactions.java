@@ -10,8 +10,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 public class Transactions {
@@ -127,6 +125,10 @@ public class Transactions {
 		this.transactionDate = transactionDate;
 		this.quantityl = quantityl;
 		this.transactionType = transactionType;
+	}
+	public Transactions() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	
 	

@@ -27,8 +27,8 @@ public class Blood_UnitsDAO {
 		
 	}
 	
-	public void deletebloodunit(Blood_Units blood_units){
-		 bloodunitsRepository.delete(blood_units);
+	public void deletebloodunit(Blood_Units bloodUnits){
+		 bloodunitsRepository.delete(bloodUnits);
 	}
 	
 	public Optional<Blood_Units> findOne(Long bloodUnitID) {
