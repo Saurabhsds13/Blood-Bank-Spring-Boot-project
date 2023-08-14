@@ -1,0 +1,21 @@
+package com.AEL.bloodbank.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.AEL.bloodbank.dao.StaffDAO;
+import com.AEL.bloodbank.model.Staff;
+
+public class StaffController {
+
+	@Autowired
+	StaffDAO staffdao;
+	
+	
+	@PostMapping("/createStaff")
+	public Staff createStaff(@Validated @RequestBody Staff staff) {
+		return staffdao.save(staff);
+	}
+}

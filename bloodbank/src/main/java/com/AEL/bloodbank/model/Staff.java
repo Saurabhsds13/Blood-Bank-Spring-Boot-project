@@ -25,7 +25,7 @@ public class Staff {
 	private String email;
 	
 	@Column(name="Phone_No")
-	private int phoneNo;
+	private String phoneNo;
 	
 	@Column(name="Role")
 	private String role;
@@ -34,7 +34,7 @@ public class Staff {
 		return staffId;
 	}
 
-	public void setStaffId(int staffId) {
+	public void setStaffId(int staffId) {	
 		this.staffId = staffId;
 	}
 
@@ -62,11 +62,11 @@ public class Staff {
 		this.email = email;
 	}
 
-	public int getPhoneNo() {
+	public String getPhoneNo() {
 		return phoneNo;
 	}
 
-	public void setPhoneNo(int phoneNo) {
+	public void setPhoneNo(String phoneNo) {
 		this.phoneNo = phoneNo;
 	}
 
@@ -84,7 +84,7 @@ public class Staff {
 				+ ", phoneNo=" + phoneNo + ", role=" + role + "]";
 	}
 
-	public Staff(int staffId, String firstName, String lastName, String email, int phoneNo, String role) {
+	public Staff(int staffId, String firstName, String lastName, String email, String phoneNo, String role) {
 		super();
 		this.staffId = staffId;
 		this.firstName = firstName;
@@ -92,6 +92,11 @@ public class Staff {
 		this.email = email;
 		this.phoneNo = phoneNo;
 		this.role = role;
+	}
+
+	public Staff() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	
 	
