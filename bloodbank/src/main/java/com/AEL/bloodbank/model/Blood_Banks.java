@@ -6,7 +6,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -26,9 +25,11 @@ public class Blood_Banks {
 	
 	private String address;
 	private String city;
+	private String state;
 	
-	@OneToMany(mappedBy = "blood_banks")
-	private List<Blood_Units> bloodUnit;
+	
+//	@OneToMany(mappedBy = "blood_banks")
+//	private List<Blood_Units> bloodUnit;
 	  
 	@Column(name="zip_code")
 	private int zipCode;
@@ -89,19 +90,29 @@ public class Blood_Banks {
 		this.zipCode = zipCode;
 	}
 
-	public List<Blood_Units> getBloodUnits() {
-		return bloodUnit;
+//	public List<Blood_Units> getBloodUnits() {
+//		return bloodUnit;
+//	}
+//
+//	public void setBloodUnits(List<Blood_Units> bloodUnits) {
+//		this.bloodUnit = bloodUnits;
+//	}
+
+	public String getState() {
+		return state;
 	}
 
-	public void setBloodUnits(List<Blood_Units> bloodUnits) {
-		this.bloodUnit = bloodUnits;
+	public void setState(String state) {
+		this.state = state;
 	}
+
+
 
 	@Override
 	public String toString() {
 		return "Blood_Banks [bloodBankId=" + bloodBankId + ", name=" + name + ", email=" + email + ", phoneNO="
-				+ phoneNO + ", address=" + address + ", city=" + city + ", bloodUnits=" + bloodUnit + ", zipCode="
-				+ zipCode + "]";
+				+ phoneNO + ", address=" + address + ", city=" + city + ", state=" + state + ", bloodUnit=" 
+				+ ", zipCode=" + zipCode + "]";
 	}
 
 	public Blood_Banks(int bloodBankId, String name, String email, String phoneNO, String address, String city,
@@ -113,8 +124,13 @@ public class Blood_Banks {
 		this.phoneNO = phoneNO;
 		this.address = address;
 		this.city = city;
-		this.bloodUnit = bloodUnit;
+		
 		this.zipCode = zipCode;
+	}
+
+	public Blood_Banks(String state) {
+		super();
+		this.state = state;
 	}
 
 	public Blood_Banks() {

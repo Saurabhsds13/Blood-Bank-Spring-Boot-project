@@ -21,7 +21,7 @@ public class Blood_BanksController {
 	@Autowired
 	 Blood_BanksDAO blood_banksDAO;
 	
-	@PostMapping("/blood_banks")
+	@PostMapping("/bloodBanks")
 	public Blood_Banks createBloodBank(@Validated @RequestBody Blood_Banks bb) {
 		System.out.println("Blood Bank Created "+bb);
 		return blood_banksDAO.save(bb);

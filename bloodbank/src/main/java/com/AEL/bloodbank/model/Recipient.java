@@ -1,14 +1,11 @@
 package com.AEL.bloodbank.model;
 
 import java.sql.Date;
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -41,8 +38,8 @@ public class Recipient {
 	private String city;
 	private String state;
 	
-	@OneToMany(mappedBy = "recipient")
-    private List<Transactions> transactions;
+//	@OneToMany(mappedBy = "recipient")
+//    private List<Transactions> transactions;
 	
 	@Column(name="zip_code")
 	private int zipCode;
@@ -139,20 +136,14 @@ public class Recipient {
 
 	//To String Method
 	
-	public List<Transactions> getTransactions() {
-		return transactions;
-	}
 
-	public void setTransactions(List<Transactions> transactions) {
-		this.transactions = transactions;
-	}
 
 	@Override
 	public String toString() {
 		return "Recipient [recipentId=" + recipentId + ", firstName=" + firstName + ", lastName=" + lastName
 				+ ", emailID=" + emailID + ", phoneNo=" + phoneNo + ", bloodType=" + bloodType + ", dateofBirth="
 				+ dateofBirth + ", address=" + address + ", city=" + city + ", state=" + state + ", transactions="
-				+ transactions + ", zipCode=" + zipCode + "]";
+				 + ", zipCode=" + zipCode + "]";
 	}
 	
 
@@ -161,7 +152,7 @@ public class Recipient {
 
 	public Recipient(int recipentId, String firstName, String lastName, String emailID, String phoneNo,
 			String bloodType, Date dateofBirth, String address, String city, String state,
-			List<Transactions> transactions, int zipCode) {
+			 int zipCode) {
 		super();
 		this.recipentId = recipentId;
 		this.firstName = firstName;
@@ -173,8 +164,12 @@ public class Recipient {
 		this.address = address;
 		this.city = city;
 		this.state = state;
-		this.transactions = transactions;
 		this.zipCode = zipCode;
+	}
+
+	public Recipient() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	
 	

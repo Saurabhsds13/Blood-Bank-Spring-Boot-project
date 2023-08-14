@@ -25,5 +25,15 @@ import com.AEL.bloodbank.repository.DonorRepository;
 			// return null;
 			return donorrepository.findById(donorId);
 		}
+		public Donor findOneByEmail(String emailID) {
+			// return null;
+			return donorrepository.findOneByEmail(emailID);
+	}
+		
+		
+//		public List<Donor>  getDonorByLocation(String location){
+//			return donorrepository.getDonorByLocation(location);
+//		}
+		
 	}
 

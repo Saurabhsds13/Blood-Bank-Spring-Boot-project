@@ -1,6 +1,8 @@
 package com.AEL.bloodbank.model;
 
 import java.sql.Date;
+
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,6 +29,7 @@ public class Donor {
 	
 	@Column(name="phone_no")
 	private String phoneNo;
+	
 	
 //	@PrimaryKeyJoinColumn(name="Blood_Unit_ID")
 //	@JoinColumn(name="Blood_Unit_ID")
@@ -148,6 +151,18 @@ public class Donor {
 		this.lastdonationDate = lastdonationDate;
 	}
 
+	
+
+//	public List<Blood_Units> getBloodUnits() {
+//		return bloodUnits;
+//	}
+
+//	public void setBloodUnits(List<Blood_Units> bloodUnits) {
+//		this.bloodUnits = bloodUnits;
+//	}
+
+	
+
 	public Donor(int donorId, String firstName, String lastName, String emailID, String phoneNo, String bloodType,
 			 Date dateofBirth, String address, String city, String state, int zipCode,
 			Date lastdonationDate) {
@@ -158,7 +173,7 @@ public class Donor {
 		this.emailID = emailID;
 		this.phoneNo = phoneNo;
 		this.bloodType = bloodType;
-		
+//		this.bloodUnits = bloodUnits;
 		this.dateofBirth = dateofBirth;
 		this.address = address;
 		this.city = city;
@@ -167,10 +182,12 @@ public class Donor {
 		this.lastdonationDate = lastdonationDate;
 	}
 
+	
+
 	@Override
 	public String toString() {
 		return "Donor [donorId=" + donorId + ", firstName=" + firstName + ", lastName=" + lastName + ", emailID="
-				+ emailID + ", phoneNo=" + phoneNo + ", bloodType=" + bloodType + ", bloodUnits="
+				+ emailID + ", phoneNo=" + phoneNo +  ", bloodType=" + bloodType
 				+ ", dateofBirth=" + dateofBirth + ", address=" + address + ", city=" + city + ", state=" + state
 				+ ", zipCode=" + zipCode + ", lastdonationDate=" + lastdonationDate + "]";
 	}

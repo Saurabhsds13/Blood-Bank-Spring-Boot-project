@@ -38,7 +38,7 @@ public class Transactions {
 	private Date transactionDate;
 	
 	@Column(name="Quantity")
-	private int quantityl;
+	private int quantity;
 	
 	@Column(name="Transaction_Type")
 	private String transactionType;
@@ -76,10 +76,10 @@ public class Transactions {
 		this.transactionDate = transactionDate;
 	}
 	public int getQuantityl() {
-		return quantityl;
+		return quantity;
 	}
 	public void setQuantityl(int quantityl) {
-		this.quantityl = quantityl;
+		this.quantity = quantityl;
 	}
 	public String getTransactionType() {
 		return transactionType;
@@ -112,18 +112,18 @@ public class Transactions {
 	@Override
 	public String toString() {
 		return "Transactions [transactionId=" + transactionId + ", donor=" + donor + ", recipient=" + recipient
-				+ ", blood_units=" + blood_units + ", transactionDate=" + transactionDate + ", quantityl=" + quantityl
+				+ ", blood_units=" + blood_units + ", transactionDate=" + transactionDate + ", quantityl=" + quantity
 				+ ", transactionType=" + transactionType + "]";
 	}
 	public Transactions(int transactionId, Donor donor, Recipient recipient, Blood_Units blood_units,
-			Date transactionDate, int quantityl, String transactionType) {
+			Date transactionDate, int quantity, String transactionType) {
 		super();
 		this.transactionId = transactionId;
 		this.donor = donor;
 		this.recipient = recipient;
 		this.blood_units = blood_units;
 		this.transactionDate = transactionDate;
-		this.quantityl = quantityl;
+		this.quantity = quantity;
 		this.transactionType = transactionType;
 	}
 	public Transactions() {

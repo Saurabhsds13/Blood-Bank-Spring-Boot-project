@@ -11,7 +11,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,12 +24,11 @@ public class Blood_Units {
 	
 	
 //	@Column(name="donor_id")
-//	@OneToOne(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
+//	@OneToOne(fetch = FetchType.LAZY,cascade=CascadeType.ALL)q
 //	@JoinColumn(name="donor_Id")
 //	private Donor donor;
 	
-	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "donor_id")
     private Donor donor;
 	
@@ -39,12 +37,12 @@ public class Blood_Units {
 	@JoinColumn(name="blood_bank_id")	
 	private Blood_Banks blood_banks;
 	
-	@ManyToOne
-	@JoinColumn(name = "recipient_id")
-	private Recipient recipient;
-	    
-	@OneToMany(mappedBy = "blood_units")
-	private List<Transactions> transactions;
+//	@ManyToOne
+//	@JoinColumn(name = "recipient_id")
+//	private Recipient recipient;
+//	    
+//	@OneToMany(mappedBy = "blood_units")
+//	private List<Transactions> transactions;
 	
 	@Column(name="blood_type")
 	private String bloodType;
@@ -54,8 +52,6 @@ public class Blood_Units {
 	private Date expirationDate;
 	
 	private String status;
-	
-	
 	
 	public int getBloodUnitID() {
 		return bloodUnitID;
@@ -75,18 +71,18 @@ public class Blood_Units {
 	public void ListBlood_banks(Blood_Banks blood_banks) {
 		this.blood_banks = blood_banks;
 	}
-	public Recipient getRecipient() {
-		return recipient;
-	}
-	public void ListRecipient(Recipient recipient) {
-		this.recipient = recipient;
-	}
-	public List<Transactions> getTransactions() {
-		return transactions;
-	}
-	public void ListTransactions(List<Transactions> transactions) {
-		this.transactions = transactions;
-	}
+//	public Recipient getRecipient() {
+//		return recipient;
+//	}
+//	public void ListRecipient(Recipient recipient) {
+//		this.recipient = recipient;
+//	}
+//	public List<Transactions> getTransactions() {
+//		return transactions;
+//	}
+//	public void ListTransactions(List<Transactions> transactions) {
+//		this.transactions = transactions;
+//	}
 	public String getBloodType() {
 		return bloodType;
 	}
@@ -114,7 +110,7 @@ public class Blood_Units {
 	@Override
 	public String toString() {
 		return "Blood_Units [bloodUnitID=" + bloodUnitID + ", donor=" + donor + ", blood_banks=" + blood_banks
-				+ ", recipient=" + recipient + ", transactions=" + transactions + ", bloodType=" + bloodType
+				+ ", recipient=" + ", transactions=" + ", bloodType=" + bloodType
 				+ ", collectionDate=" + collectionDate + ", expirationDate=" + expirationDate + ", status=" + status
 				+ "]";
 	}
@@ -125,8 +121,7 @@ public class Blood_Units {
 		this.bloodUnitID = bloodUnitID;
 		this.donor = donor;
 		this.blood_banks = blood_banks;
-		this.recipient = recipient;
-		this.transactions = transactions;
+	
 		this.bloodType = bloodType;
 		this.collectionDate = collectionDate;
 		this.expirationDate = expirationDate;
